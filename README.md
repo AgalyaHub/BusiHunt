@@ -162,7 +162,6 @@ http://localhost/busihunt
 
 ![Admin Dashboard](screenshots/admin-dashboard.png)
 
-```
 
 ## 👩‍💻 Author
 
