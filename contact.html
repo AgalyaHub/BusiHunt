@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Busi Hunt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">BH</div>
+        <div class="logo-text">Busi<span>Hunt</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline">Sign In</a>
+        <a href="register.html" class="btn btn-primary">Join Now</a>
+      </div>
+      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <button class="mobile-close">✕</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Events</a>
+    <a href="members.html">Members</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html" class="btn btn-primary">Join Now</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-eyebrow">Get in Touch</span>
+      <h1>We'd Love to Hear<br>From You</h1>
+      <p>Whether you have questions about membership, events, or partnerships — we're here to help.</p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span>
+        <span style="color:rgba(255,255,255,0.7)">Contact</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Info Side -->
+        <div class="fade-in">
+          <span class="section-eyebrow">Contact Information</span>
+          <h2>Let's Start a Conversation</h2>
+          <p class="mt-2">Reach out and a member of our team will get back to you within 24 hours.</p>
+
+          <div style="margin-top:2.5rem;">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📍</div>
+              <div class="contact-info-text">
+                <h4>Our Office</h4>
+                <p>No. 12, Anna Salai, Teynampet,<br>Chennai – 600 018, Tamil Nadu, India</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📞</div>
+              <div class="contact-info-text">
+                <h4>Phone</h4>
+                <p>+91 44 0000 0000</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">✉️</div>
+              <div class="contact-info-text">
+                <h4>Email</h4>
+                <p>info@busihunt.com<br>events@busihunt.com</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">🕐</div>
+              <div class="contact-info-text">
+                <h4>Office Hours</h4>
+                <p>Monday – Friday: 9:00 AM – 6:00 PM<br>Saturday: 10:00 AM – 2:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:2rem;">
+            <h4 style="margin-bottom:1rem;font-size:1rem;">Follow Us</h4>
+            <div class="social-links" style="gap:0.75rem;">
+              <a href="#" class="social-link" style="background:var(--off-white);color:var(--navy);width:44px;height:44px;font-size:1rem;">in</a>
+              <a href="#" class="social-link" style="background:var(--off-white);color:var(--navy);width:44px;height:44px;font-size:1rem;">𝕏</a>
+              <a href="#" class="social-link" style="background:var(--off-white);color:var(--navy);width:44px;height:44px;font-size:1rem;">f</a>
+              <a href="#" class="social-link" style="background:var(--off-white);color:var(--navy);width:44px;height:44px;font-size:1rem;">📷</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Side -->
+        <div class="fade-in fade-in-delay-2">
+          <div class="contact-form">
+            <h3 style="margin-bottom:0.25rem;">Send Us a Message</h3>
+            <p style="font-size:0.88rem;margin-bottom:1.5rem;">Fill in the form and we'll get back to you shortly.</p>
+
+            <div id="formAlert" style="display:none;padding:0.85rem 1.1rem;border-radius:6px;font-size:0.88rem;font-weight:500;margin-bottom:1.25rem;"></div>
+
+            <form id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" id="firstName" placeholder="John" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" placeholder="Doe" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cemail">Email Address *</label>
+                <input type="email" id="cemail" placeholder="john@company.com" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="+91 98765 43210">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="company">Company</label>
+                  <input type="text" id="company" placeholder="Your Company">
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject *</label>
+                  <select id="subject" required>
+                    <option value="">Select a topic</option>
+                    <option value="Membership Inquiry">Membership Inquiry</option>
+                    <option value="Event Registration">Event Registration</option>
+                    <option value="Partnership Proposal">Partnership Proposal</option>
+                    <option value="Sponsorship">Sponsorship</option>
+                    <option value="General Query">General Query</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" placeholder="Tell us how we can help you..." required></textarea>
+              </div>
+              <button type="button" id="submitBtn" class="btn btn-primary" style="width:100%;justify-content:center;padding:1rem;" onclick="submitContactForm()">
+                Send Message →
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center fade-in">
+        <span class="section-eyebrow">FAQs</span>
+        <h2>Common Questions</h2>
+      </div>
+      <div style="max-width:700px;margin:2.5rem auto 0;display:flex;flex-direction:column;gap:1rem;" class="fade-in">
+        <details style="background:var(--white);border:1px solid var(--gray-light);border-radius:var(--radius-md);padding:1.25rem 1.5rem;cursor:pointer;">
+          <summary style="font-weight:600;color:var(--navy);font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+            How do I join Busi Hunt? <span style="font-size:1.2rem;color:var(--gold);">+</span>
+          </summary>
+          <p style="margin-top:0.75rem;font-size:0.9rem;">You can join by clicking "Join Now" on our homepage. The starter plan is completely free.</p>
+        </details>
+        <details style="background:var(--white);border:1px solid var(--gray-light);border-radius:var(--radius-md);padding:1.25rem 1.5rem;cursor:pointer;">
+          <summary style="font-weight:600;color:var(--navy);font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+            Are events open to non-members? <span style="font-size:1.2rem;color:var(--gold);">+</span>
+          </summary>
+          <p style="margin-top:0.75rem;font-size:0.9rem;">Some events are open to the public, while exclusive events are for Professional and Enterprise members only.</p>
+        </details>
+        <details style="background:var(--white);border:1px solid var(--gray-light);border-radius:var(--radius-md);padding:1.25rem 1.5rem;cursor:pointer;">
+          <summary style="font-weight:600;color:var(--navy);font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+            Can I upgrade my membership plan later? <span style="font-size:1.2rem;color:var(--gold);">+</span>
+          </summary>
+          <p style="margin-top:0.75rem;font-size:0.9rem;">Yes, you can upgrade your plan at any time. Contact our team and we'll help you transition seamlessly.</p>
+        </details>
+        <details style="background:var(--white);border:1px solid var(--gray-light);border-radius:var(--radius-md);padding:1.25rem 1.5rem;cursor:pointer;">
+          <summary style="font-weight:600;color:var(--navy);font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+            How do I partner with Busi Hunt? <span style="font-size:1.2rem;color:var(--gold);">+</span>
+          </summary>
+          <p style="margin-top:0.75rem;font-size:0.9rem;">Use the contact form above and select "Partnership Proposal" as the subject.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><div class="logo-icon">BH</div><div class="logo-text">Busi<span>Hunt</span></div></div>
+          <p>India's premier business networking forum connecting entrepreneurs, investors, and industry leaders.</p>
+          <div class="social-links mt-3">
+            <a href="#" class="social-link">in</a>
+            <a href="#" class="social-link">𝕏</a>
+            <a href="#" class="social-link">f</a>
+            <a href="#" class="social-link">📷</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <ul class="footer-links">
+            <li><a href="#">Business Forum</a></li>
+            <li><a href="#">Success Stories</a></li>
+            <li><a href="#">Blog & Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:info@busihunt.com">info@busihunt.com</a></li>
+            <li><a href="#">Chennai, Tamil Nadu</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Busi Hunt. All rights reserved.</span>
+        <span>Designed with ❤️ for Indian Business Community</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    function submitContactForm() {
+      var firstName = document.getElementById('firstName').value.trim();
+      var lastName  = document.getElementById('lastName').value.trim();
+      var email     = document.getElementById('cemail').value.trim();
+      var phone     = document.getElementById('phone').value.trim();
+      var company   = document.getElementById('company').value.trim();
+      var subject   = document.getElementById('subject').value.trim();
+      var message   = document.getElementById('message').value.trim();
+      var submitBtn = document.getElementById('submitBtn');
+      var formAlert = document.getElementById('formAlert');
+
+      if (!firstName || !lastName || !email || !subject || !message) {
+        showAlert('Please fill in all required fields.', 'error');
+        return;
+      }
+
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      var formData = new FormData();
+      formData.append('first_name', firstName);
+      formData.append('last_name',  lastName);
+      formData.append('email',      email);
+      formData.append('phone',      phone);
+      formData.append('company',    company);
+      formData.append('subject',    subject);
+      formData.append('message',    message);
+
+      fetch('http://localhost/busihunt/php/contact.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.status === 'success') {
+          showAlert('✅ ' + data.message, 'success');
+          document.getElementById('contactForm').reset();
+        } else {
+          showAlert('❌ ' + data.message, 'error');
+        }
+        submitBtn.textContent = 'Send Message →';
+        submitBtn.disabled = false;
+      })
+      .catch(function(err) {
+        showAlert('Something went wrong. Please try again.', 'error');
+        submitBtn.textContent = 'Send Message →';
+        submitBtn.disabled = false;
+      });
+    }
+
+    function showAlert(msg, type) {
+      var formAlert = document.getElementById('formAlert');
+      formAlert.textContent = msg;
+      formAlert.style.display     = 'block';
+      formAlert.style.background  = type === 'success' ? '#d4edda' : '#f8d7da';
+      formAlert.style.color       = type === 'success' ? '#155724' : '#721c24';
+      formAlert.style.border      = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+    }
+  </script>
+
+</body>
+</html>

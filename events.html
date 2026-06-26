@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Busi Hunt</title>
+  <meta name="description" content="Browse upcoming and past Busi Hunt business networking events, summits, workshops, and webinars across India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">BH</div>
+        <div class="logo-text">Busi<span>Hunt</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-outline">Sign In</a>
+        <a href="contact.html" class="btn btn-primary">Join Now</a>
+      </div>
+      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <button class="mobile-close">✕</button>
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="events.html">Events</a><a href="members.html">Members</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary">Join Now</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-eyebrow">Events & Meetups</span>
+      <h1>Business Events That<br>Create Real Impact</h1>
+      <p>Summits, workshops, investor meetups, and more — all curated for serious business professionals.</p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span style="color:rgba(255,255,255,0.7)">Events</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS LIST -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;" class="fade-in">
+        <div>
+          <span class="section-eyebrow">Upcoming Events</span>
+          <h2>Find Your Next Event</h2>
+        </div>
+      </div>
+      <div class="filter-bar fade-in">
+        <button class="filter-btn active" data-filter="all">All Events</button>
+        <button class="filter-btn" data-filter="summit">Summits</button>
+        <button class="filter-btn" data-filter="workshop">Workshops</button>
+        <button class="filter-btn" data-filter="webinar">Webinars</button>
+        <button class="filter-btn" data-filter="meetup">Meetups</button>
+      </div>
+      <div class="events-list-grid">
+
+        <div class="event-list-card fade-in fade-in-delay-1" data-category="summit">
+          <div class="event-list-img event-img-1">
+            <span class="event-date-badge">Jul 20, 2026</span>
+            🏛️
+          </div>
+          <div class="event-list-body">
+            <div class="event-info-row">
+              <span>📍 Chennai</span><span>🕐 10:00 AM</span><span>👥 500 seats</span>
+            </div>
+            <h3>South India Business Summit 2026</h3>
+            <p>India's top entrepreneurs and investors gather for a full-day summit on growth, funding, and collaboration.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="event-tag">Summit</span>
+              <a href="contact.html" class="btn btn-primary" style="padding:0.4rem 1rem;font-size:0.82rem;">Register →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-list-card fade-in fade-in-delay-2" data-category="meetup">
+          <div class="event-list-img event-img-2">
+            <span class="event-date-badge">Aug 5, 2026</span>
+            💡
+          </div>
+          <div class="event-list-body">
+            <div class="event-info-row">
+              <span>📍 Bangalore</span><span>🕐 9:00 AM</span><span>👥 80 seats</span>
+            </div>
+            <h3>Startup Pitch & Investor Meetup</h3>
+            <p>Selected startups pitch to a panel of seasoned investors. Open for all members to attend and observe.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="event-tag">Investor Meet</span>
+              <a href="contact.html" class="btn btn-primary" style="padding:0.4rem 1rem;font-size:0.82rem;">Register →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-list-card fade-in fade-in-delay-3" data-category="webinar">
+          <div class="event-list-img event-img-3">
+            <span class="event-date-badge">Aug 18, 2026</span>
+            🌐
+          </div>
+          <div class="event-list-body">
+            <div class="event-info-row">
+              <span>📍 Online</span><span>🕐 3:00 PM</span><span>👥 Unlimited</span>
+            </div>
+            <h3>Export & International Trade Webinar</h3>
+            <p>Learn how to take your business global with expert guidance on exports, regulations, and new markets.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="event-tag">Webinar</span>
+              <a href="contact.html" class="btn btn-primary" style="padding:0.4rem 1rem;font-size:0.82rem;">Register →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-list-card fade-in fade-in-delay-1" data-category="workshop">
+          <div class="event-list-img" style="background:linear-gradient(135deg,#1DB774 0%,#0B6E45 100%);">
+            <span class="event-date-badge">Sep 2, 2026</span>
+            📊
+          </div>
+          <div class="event-list-body">
+            <div class="event-info-row">
+              <span>📍 Hyderabad</span><span>🕐 10:00 AM</span><span>👥 60 seats</span>
+            </div>
+            <h3>Financial Planning for MSMEs Workshop</h3>
+            <p>A hands-on workshop covering cash flow management, GST, and growth financing for small businesses.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="event-tag">Workshop</span>
+              <a href="contact.html" class="btn btn-primary" style="padding:0.4rem 1rem;font-size:0.82rem;">Register →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-list-card fade-in fade-in-delay-2" data-category="summit">
+          <div class="event-list-img" style="background:linear-gradient(135deg,#5B2D8E 0%,#2D1550 100%);">
+            <span class="event-date-badge">Sep 15, 2026</span>
+            🚀
+          </div>
+          <div class="event-list-body">
+            <div class="event-info-row">
+              <span>📍 Mumbai</span><span>🕐 9:30 AM</span><span>👥 300 seats</span>
+            </div>
+            <h3>Women in Business Leadership Summit</h3>
+            <p>Celebrating and empowering women entrepreneurs and executives with stories, panels, and networking.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="event-tag">Summit</span>
+              <a href="contact.html" class="btn btn-primary" style="padding:0.4rem 1rem;font-size:0.82rem;">Register →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-list-card fade-in fade-in-delay-3" data-category="meetup">
+          <div class="event-list-img" style="background:linear-gradient(135deg,#E05A2B 0%,#8C2A0A 100%);">
+            <span class="event-date-badge">Oct 3, 2026</span>
+            🥂
+          </div>
+          <div class="event-list-body">
+            <div class="event-info-row">
+              <span>📍 Chennai</span><span>🕐 6:00 PM</span><span>👥 100 seats</span>
+            </div>
+            <h3>Quarterly Business Networking Evening</h3>
+            <p>An informal evening of networking, introductions, and business conversations over refreshments.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="event-tag">Networking</span>
+              <a href="contact.html" class="btn btn-primary" style="padding:0.4rem 1rem;font-size:0.82rem;">Register →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-eyebrow">Don't Miss Out</span>
+      <h2>Get Notified About<br>Future Events</h2>
+      <p>Join Busi Hunt and be the first to know about upcoming events, workshops, and exclusive member meetups.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn btn-primary btn-lg">Join for Free</a>
+        <a href="contact.html" class="btn btn-outline btn-lg">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><div class="logo-icon">BH</div><div class="logo-text">Busi<span>Hunt</span></div></div>
+          <p>India's premier business networking forum connecting entrepreneurs, investors, and industry leaders.</p>
+          <div class="social-links mt-3">
+            <a href="#" class="social-link">in</a><a href="#" class="social-link">𝕏</a>
+            <a href="#" class="social-link">f</a><a href="#" class="social-link">📷</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li><li><a href="members.html">Members</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <ul class="footer-links">
+            <li><a href="#">Business Forum</a></li><li><a href="#">Success Stories</a></li>
+            <li><a href="#">Partner Directory</a></li><li><a href="#">Blog & Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:info@busihunt.com">info@busihunt.com</a></li>
+            <li><a href="#">Chennai, Tamil Nadu</a></li>
+            <li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Busi Hunt. All rights reserved.</span>
+        <span>Designed with ❤️ for Indian Business Community</span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

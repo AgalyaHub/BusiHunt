@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members — Busi Hunt</title>
+  <meta name="description" content="Meet the Busi Hunt community — thousands of business professionals, entrepreneurs, and industry leaders across India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .member-card {
+      background: var(--white);
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .member-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .member-card .member-avatar { width: 64px; height: 64px; margin: 0 auto 1rem; font-size: 1.2rem; }
+    .member-card h4 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .member-card .role { font-size: 0.8rem; color: var(--gray-mid); margin-bottom: 0.25rem; }
+    .member-card .company { font-size: 0.78rem; color: var(--accent); font-weight: 600; }
+    .member-card .sector-tag {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.65rem;
+      border-radius: 99px;
+      background: rgba(11,31,58,0.07);
+      color: var(--navy);
+    }
+    .member-card .connect-btn {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+      padding: 0.5rem;
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      background: var(--off-white);
+      transition: all var(--transition);
+    }
+    .member-card .connect-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .search-bar {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .search-bar input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .search-bar input:focus { border-color: var(--accent); }
+    .search-bar select {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      background: var(--white);
+      cursor: pointer;
+      outline: none;
+    }
+    @media (max-width: 1024px) { .members-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .members-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .members-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">BH</div>
+        <div class="logo-text">Busi<span>Hunt</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-outline">Sign In</a>
+        <a href="contact.html" class="btn btn-primary">Join Now</a>
+      </div>
+      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <button class="mobile-close">✕</button>
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="events.html">Events</a><a href="members.html">Members</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary">Join Now</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-eyebrow">Our Community</span>
+      <h1>Meet Our Members</h1>
+      <p>Thousands of professionals, founders, and leaders across India — all in one trusted network.</p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span>
+        <span style="color:rgba(255,255,255,0.7)">Members</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERS DIRECTORY -->
+  <section class="section">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-eyebrow">Member Directory</span>
+        <h2>Find & Connect with Professionals</h2>
+        <div class="search-bar">
+          <input type="text" placeholder="🔍  Search by name, company, or skill...">
+          <select>
+            <option value="">All Sectors</option>
+            <option>Technology</option>
+            <option>Finance</option>
+            <option>Manufacturing</option>
+            <option>Healthcare</option>
+            <option>Real Estate</option>
+            <option>Retail</option>
+            <option>Consulting</option>
+          </select>
+          <select>
+            <option value="">All Cities</option>
+            <option>Chennai</option>
+            <option>Bangalore</option>
+            <option>Mumbai</option>
+            <option>Delhi</option>
+            <option>Hyderabad</option>
+          </select>
+          <button class="btn btn-navy">Search</button>
+        </div>
+      </div>
+
+      <div class="members-grid">
+        <div class="member-card fade-in fade-in-delay-1">
+          <div class="member-avatar avatar-1">RS</div>
+          <h4>Rajesh Sharma</h4>
+          <div class="role">CEO & Co-Founder</div>
+          <div class="company">TechSprint India</div>
+          <span class="sector-tag">Technology</span>
+          <button class="connect-btn" onclick="this.textContent='✓ Connected'">Connect</button>
+        </div>
+        <div class="member-card fade-in fade-in-delay-2">
+          <div class="member-avatar avatar-2">PM</div>
+          <h4>Priya Menon</h4>
+          <div class="role">Investment Director</div>
+          <div class="company">Horizon Ventures</div>
+          <span class="sector-tag">Finance</span>
+          <button class="connect-btn" onclick="this.textContent='✓ Connected'">Connect</button>
+        </div>
+        <div class="member-card fade-in fade-in-delay-3">
+          <div class="member-avatar avatar-3">AK</div>
+          <h4>Amit Kumar</h4>
+          <div class="role">Founder</div>
+          <div class="company">AgriLink Solutions</div>
+          <span class="sector-tag">AgriTech</span>
+          <button class="connect-btn" onclick="this.textContent='✓ Connected'">Connect</button>
+        </div>
+        <div class="member-card fade-in fade-in-delay-4">
+          <div class="member-avatar avatar-4">SV</div>
+          <h4>Sunita Verma</h4>
+          <div class="role">Export Consultant</div>
+          <div class="company">TradeLink Global</div>
+          <span class="sector-tag">Trade</span>
+          <button class="connect-btn" onclick="this.textContent='✓ Connected'">Connect</button>
+        </div>
+        <div class="member-card fade-in fade-in-delay-1">
+          <div class="member-avatar" style="background:#5B2D8E">VN</div>
+          <h4>Vishal Nair</h4>
+          <div class="role">Managing Director</div>
+          <div class="company">Nair Constructions</div>
+          <span class="sector-tag">Real Estate</span>
+          <button class="connect-btn" onclick="this.textContent='✓ Connected'">Connect</button>
+        </div>
+        <div class="member-card fade-in fade-in-delay-2">
+          <div class="member-avatar" style="background:#009688">DM</div>
+          <h4>Deepa Murthy</h4>
+          <div class="role">Healthcare Director</div>
+          <div class="company">Wellness First Pvt Ltd</div>
+          <span class="sector-tag">Healthcare</span>
+          <button class="connect-btn" onclick="this.textContent='✓ Connected'">Connect</button>
+        </div>
+        <div class="member-card fade-in fade-in-delay-3">
+          <div class="member-avatar" style="background:#FF7043">KR</div>
+          <h4>Karthik Rajan</h4>
+          <div class="role">CFO</div>
+          <div class="company">BrightFinance Corp</div>
+          <span class="sector-tag">Finance</span>
+          <button class="connect-btn" onclick="this.textContent='✓ Connected'">Connect</button>
+        </div>
+        <div class="member-card fade-in fade-in-delay-4">
+          <div class="member-avatar" style="background:#3949AB">LA</div>
+          <h4>Lakshmi Anand</h4>
+          <div class="role">Marketing Head</div>
+          <div class="company">GrowthPixel Agency</div>
+          <span class="sector-tag">Marketing</span>
+          <button class="connect-btn" onclick="this.textContent='✓ Connected'">Connect</button>
+        </div>
+      </div>
+
+      <div class="text-center mt-4 fade-in">
+        <p style="color:var(--gray-mid);font-size:0.9rem;margin-bottom:1rem;">Showing 8 of 5,000+ members</p>
+        <a href="contact.html" class="btn btn-navy">Join to See Full Directory →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center fade-in">
+        <span class="section-eyebrow">Community Strength</span>
+        <h2>A Network That Spans<br>Every Industry</h2>
+      </div>
+      <div class="features-grid mt-4">
+        <div class="feature-card fade-in fade-in-delay-1">
+          <div class="feature-icon icon-blue">🏭</div>
+          <h3>Manufacturing & Industry</h3>
+          <p>Over 800 members from traditional and modern manufacturing, supply chain, and industrial sectors.</p>
+        </div>
+        <div class="feature-card fade-in fade-in-delay-2">
+          <div class="feature-icon icon-green">💻</div>
+          <h3>Technology & IT</h3>
+          <p>1,200+ tech professionals including founders, CTOs, software leaders, and product managers.</p>
+        </div>
+        <div class="feature-card fade-in fade-in-delay-3">
+          <div class="feature-icon icon-gold">💰</div>
+          <h3>Finance & Investment</h3>
+          <p>700+ bankers, investors, chartered accountants, and financial advisors ready to connect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-eyebrow">Join the Community</span>
+      <h2>Become a Busi Hunt Member<br>and Grow Your Network</h2>
+      <p>Get access to the full member directory, events, and business opportunities.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn btn-primary btn-lg">Create Free Account</a>
+        <a href="index.html#plans" class="btn btn-outline btn-lg">View Plans</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><div class="logo-icon">BH</div><div class="logo-text">Busi<span>Hunt</span></div></div>
+          <p>India's premier business networking forum connecting entrepreneurs, investors, and industry leaders.</p>
+          <div class="social-links mt-3">
+            <a href="#" class="social-link">in</a><a href="#" class="social-link">𝕏</a>
+            <a href="#" class="social-link">f</a><a href="#" class="social-link">📷</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li><li><a href="members.html">Members</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <ul class="footer-links">
+            <li><a href="#">Business Forum</a></li><li><a href="#">Success Stories</a></li>
+            <li><a href="#">Blog & Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:info@busihunt.com">info@busihunt.com</a></li>
+            <li><a href="#">Chennai, Tamil Nadu</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Busi Hunt. All rights reserved.</span>
+        <span>Designed with ❤️ for Indian Business Community</span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

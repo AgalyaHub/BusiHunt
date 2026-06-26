@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busi Hunt — Connect. Grow. Lead. (Concept 2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       CONCEPT 2 — Fresh Teal + Charcoal + Warm White
+       Signature: Split-screen hero with live network pulse visual
+    ============================================================ */
+    :root {
+      --teal:        #0A7EA4;
+      --teal-dark:   #065C78;
+      --teal-light:  #E6F4F9;
+      --charcoal:    #1C2B3A;
+      --warm-white:  #FAFAF8;
+      --off-white:   #F2F2EF;
+      --gold:        #E8A020;
+      --green:       #22C55E;
+      --text:        #374151;
+      --text-light:  #6B7280;
+      --border:      #E5E7EB;
+      --radius:      10px;
+      --radius-lg:   20px;
+      --shadow:      0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg:   0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--warm-white);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      color: var(--charcoal);
+      line-height: 1.2;
+    }
+
+    h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+    h3 { font-size: 1.2rem; }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---- NAVBAR ---- */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 0;
+      background: transparent;
+      transition: all 0.3s;
+    }
+    .navbar.scrolled {
+      background: var(--warm-white);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.08);
+      padding: 0.75rem 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: var(--teal);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: white;
+    }
+    .logo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--charcoal);
+    }
+    .navbar.scrolled .logo-name { color: var(--charcoal); }
+    .navbar:not(.scrolled) .logo-name { color: white; }
+    .navbar:not(.scrolled) .nav-link { color: rgba(255,255,255,0.85); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-left: auto;
+    }
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .nav-link:hover { background: var(--off-white); color: var(--teal); }
+    .navbar:not(.scrolled) .nav-link:hover { background: rgba(255,255,255,0.15); color: white; }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .btn-ghost {
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      color: white;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.15); }
+    .navbar.scrolled .btn-ghost {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+    .navbar.scrolled .btn-ghost:hover { background: var(--teal-light); }
+
+    .btn-solid {
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background: var(--gold);
+      color: var(--charcoal);
+      transition: all 0.2s;
+    }
+    .btn-solid:hover { background: #F5B030; transform: translateY(-1px); }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(10,126,164,0.3) 0%, transparent 70%);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(10,126,164,0.2);
+      border: 1px solid rgba(10,126,164,0.4);
+      color: #5BC8E8;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+      width: fit-content;
+    }
+
+    .hero-left h1 {
+      color: white;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-left h1 em {
+      font-style: italic;
+      color: #5BC8E8;
+    }
+
+    .hero-desc {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary-hero {
+      padding: 0.8rem 1.75rem;
+      background: var(--teal);
+      color: white;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .btn-primary-hero:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(10,126,164,0.4); }
+
+    .btn-secondary-hero {
+      padding: 0.8rem 1.75rem;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: white;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .btn-secondary-hero:hover { background: rgba(255,255,255,0.08); }
+
+    .hero-metrics {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .metric-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      color: white;
+    }
+    .metric-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.15rem;
+    }
+
+    /* Hero Right — Network Visual */
+    .hero-right {
+      background: var(--teal-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,160,32,0.15) 0%, transparent 70%);
+    }
+
+    .network-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      width: 100%;
+      max-width: 360px;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .network-card-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.5rem;
+    }
+
+    .network-pulse {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      margin-bottom: 0.75rem;
+      transition: all 0.3s;
+      animation: pulse-in 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    .network-pulse:nth-child(2) { animation-delay: 0.1s; }
+    .network-pulse:nth-child(3) { animation-delay: 0.2s; }
+    .network-pulse:nth-child(4) { animation-delay: 0.3s; }
+    .network-pulse:nth-child(5) { animation-delay: 0.4s; }
+
+    @keyframes pulse-in {
+      from { opacity: 0; transform: translateX(-10px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .pulse-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .pulse-info-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+    }
+    .pulse-info-action {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .pulse-time {
+      margin-left: auto;
+      font-size: 0.7rem;
+      color: var(--green);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .network-footer {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .network-footer-text {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .live-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* ---- MARQUEE ---- */
+    .marquee-strip {
+      background: var(--teal);
+      padding: 0.75rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      gap: 3rem;
+      animation: marquee 25s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .marquee-dot { color: rgba(255,255,255,0.4); }
+
+    /* ---- SECTIONS ---- */
+    .section { padding: 5rem 0; }
+    .section-alt { background: var(--off-white); }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-intro {
+      max-width: 540px;
+    }
+    .section-intro p {
+      color: var(--text-light);
+      margin-top: 0.75rem;
+      font-size: 1rem;
+    }
+
+    /* ---- HOW IT WORKS ---- */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .how-item {
+      position: relative;
+    }
+
+    .how-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3.5rem;
+      color: var(--teal-light);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .how-item h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+    .how-item p  { font-size: 0.88rem; color: var(--text-light); }
+
+    /* ---- FEATURES ---- */
+    .features-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .feature-icon-box {
+      width: 46px; height: 46px;
+      border-radius: 10px;
+      background: var(--teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .feature-item h4 { font-size: 1rem; margin-bottom: 0.3rem; font-family: 'DM Sans', sans-serif; font-weight: 700; }
+    .feature-item p  { font-size: 0.88rem; color: var(--text-light); }
+
+    .features-visual {
+      background: var(--charcoal);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .features-visual::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(10,126,164,0.25) 0%, transparent 70%);
+    }
+
+    .visual-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .visual-card-top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .visual-card-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: white;
+    }
+
+    .visual-card-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+    }
+    .visual-card-role {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .visual-card-tag {
+      margin-left: auto;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      background: rgba(10,126,164,0.25);
+      color: #5BC8E8;
+    }
+    .visual-card-msg {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+    }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-card p {
+      font-size: 0.93rem;
+      color: var(--text);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .t-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: white;
+    }
+
+    .t-name { font-size: 0.88rem; font-weight: 700; color: var(--charcoal); }
+    .t-role { font-size: 0.75rem; color: var(--text-light); }
+
+    /* ---- PLANS ---- */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .plan-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .plan-card:hover { box-shadow: var(--shadow); }
+
+    .plan-card.popular {
+      border-color: var(--teal);
+      position: relative;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(10,126,164,0.15);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--teal);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.85rem;
+      border-radius: 99px;
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .plan-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .plan-price {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+
+    .plan-price span {
+      font-size: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .plan-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin: 0.75rem 0 1.5rem;
+    }
+
+    .plan-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .plan-features li {
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--text);
+    }
+
+    .plan-features li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .plan-btn {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      text-align: center;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+    }
+
+    .plan-btn:hover { background: var(--teal); color: white; }
+
+    .plan-card.popular .plan-btn {
+      background: var(--teal);
+      color: white;
+    }
+
+    .plan-card.popular .plan-btn:hover { background: var(--teal-dark); }
+
+    /* ---- CTA ---- */
+    .cta-section {
+      background: var(--charcoal);
+      padding: 5rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(10,126,164,0.2) 0%, transparent 60%);
+    }
+
+    .cta-section h2 { color: white; position: relative; z-index: 1; }
+    .cta-section p  { color: rgba(255,255,255,0.6); max-width: 480px; margin: 1rem auto 0; position: relative; z-index: 1; }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-cta-primary {
+      padding: 0.85rem 2rem;
+      background: var(--teal);
+      color: white;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .btn-cta-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+
+    .btn-cta-outline {
+      padding: 0.85rem 2rem;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: white;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .btn-cta-outline:hover { background: rgba(255,255,255,0.08); }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #111827;
+      padding: 4rem 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 1rem;
+      max-width: 280px;
+      line-height: 1.7;
+    }
+
+    .footer-logo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: white;
+    }
+
+    .footer-col h5 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-links a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--teal); }
+
+    .social-row {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+    }
+
+    .social-btn {
+      width: 34px; height: 34px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .social-btn:hover { background: var(--teal); color: white; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ---- HAMBURGER ---- */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: auto;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .navbar.scrolled .hamburger span { background: var(--charcoal); }
+
+    /* ---- ANIMATIONS ---- */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 8rem 2rem 4rem; }
+      .how-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-split { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .plans-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+      .plan-card.popular { transform: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .how-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-mark">BH</div>
+        <span class="logo-name">BusiHunt</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="events.html" class="nav-link">Events</a></li>
+        <li><a href="members.html" class="nav-link">Members</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="login.html" class="btn-ghost">Sign In</a>
+        <a href="register.html" class="btn-solid">Join Free</a>
+      </div>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">🌐 India's #1 Business Network</div>
+      <h1>Where Business <em>Leaders</em> Find Each Other</h1>
+      <p class="hero-desc">Busi Hunt connects entrepreneurs, investors, and professionals across India — turning introductions into partnerships and ideas into ventures.</p>
+      <div class="hero-btns">
+        <a href="register.html" class="btn-primary-hero">Start Networking Free</a>
+        <a href="about.html" class="btn-secondary-hero">Learn More →</a>
+      </div>
+      <div class="hero-metrics">
+        <div>
+          <div class="metric-num">5,000+</div>
+          <div class="metric-label">Active Members</div>
+        </div>
+        <div>
+          <div class="metric-num">120+</div>
+          <div class="metric-label">Events Hosted</div>
+        </div>
+        <div>
+          <div class="metric-num">40+</div>
+          <div class="metric-label">Industries</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="network-card">
+        <div class="network-card-title">Live Network Activity</div>
+
+        <div class="network-pulse">
+          <div class="pulse-avatar" style="background:#0A7EA4;">RS</div>
+          <div>
+            <div class="pulse-info-name">Rajesh Sharma</div>
+            <div class="pulse-info-action">Connected with Priya Menon</div>
+          </div>
+          <div class="pulse-time">just now</div>
+        </div>
+
+        <div class="network-pulse">
+          <div class="pulse-avatar" style="background:#22C55E;">AK</div>
+          <div>
+            <div class="pulse-info-name">Amit Kumar</div>
+            <div class="pulse-info-action">Registered for Summit 2026</div>
+          </div>
+          <div class="pulse-time">2m ago</div>
+        </div>
+
+        <div class="network-pulse">
+          <div class="pulse-avatar" style="background:#E8A020;">SV</div>
+          <div>
+            <div class="pulse-info-name">Sunita Verma</div>
+            <div class="pulse-info-action">Joined Export Trade Network</div>
+          </div>
+          <div class="pulse-time">5m ago</div>
+        </div>
+
+        <div class="network-pulse">
+          <div class="pulse-avatar" style="background:#8B5CF6;">PM</div>
+          <div>
+            <div class="pulse-info-name">Priya Menon</div>
+            <div class="pulse-info-action">Posted a funding opportunity</div>
+          </div>
+          <div class="pulse-time">8m ago</div>
+        </div>
+
+        <div class="network-footer">
+          <div class="network-footer-text">147 members online now</div>
+          <div class="live-badge">
+            <div class="live-dot"></div>
+            LIVE
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span class="marquee-item">🏛️ South India Summit <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">💼 5,000+ Members <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">📅 120+ Events Hosted <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">🌐 Pan-India Network <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">🤝 Trusted Since 2018 <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">💡 40+ Industries <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">🚀 Startup Ecosystem <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">🏛️ South India Summit <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">💼 5,000+ Members <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">📅 120+ Events Hosted <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">🌐 Pan-India Network <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">🤝 Trusted Since 2018 <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">💡 40+ Industries <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">🚀 Startup Ecosystem <span class="marquee-dot">•</span></span>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-intro fade-up">
+        <span class="eyebrow">How It Works</span>
+        <h2>From Sign Up to Your First Deal in 4 Steps</h2>
+        <p>Busi Hunt makes business networking simple, structured, and results-driven.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-item fade-up delay-1">
+          <div class="how-num">01</div>
+          <h3>Create Your Profile</h3>
+          <p>Sign up free and build your professional business profile in under 5 minutes.</p>
+        </div>
+        <div class="how-item fade-up delay-2">
+          <div class="how-num">02</div>
+          <h3>Discover Members</h3>
+          <p>Browse our verified directory of 5,000+ professionals across 40+ industries.</p>
+        </div>
+        <div class="how-item fade-up delay-3">
+          <div class="how-num">03</div>
+          <h3>Attend Events</h3>
+          <p>Join summits, workshops, and networking evenings — online and in-person.</p>
+        </div>
+        <div class="how-item fade-up">
+          <div class="how-num">04</div>
+          <h3>Grow Together</h3>
+          <p>Turn connections into collaborations, clients, and long-term partnerships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="features-split">
+        <div class="fade-up">
+          <span class="eyebrow">Why Choose Us</span>
+          <h2>Everything You Need to Build a Powerful Network</h2>
+          <div class="features-list">
+            <div class="feature-item">
+              <div class="feature-icon-box">✅</div>
+              <div>
+                <h4>Verified Members Only</h4>
+                <p>Every profile is reviewed. No fake accounts — only real business professionals.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-box">📅</div>
+              <div>
+                <h4>Exclusive Business Events</h4>
+                <p>From investor meetups to industry summits — curated events that create results.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-box">🤝</div>
+              <div>
+                <h4>Smart Introductions</h4>
+                <p>Our platform suggests relevant connections based on your industry and goals.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-box">📊</div>
+              <div>
+                <h4>Business Insights</h4>
+                <p>Access market reports, industry data, and expert perspectives from our community.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="features-visual fade-up delay-2">
+          <div class="visual-card">
+            <div class="visual-card-top">
+              <div class="visual-card-avatar" style="background:#0A7EA4;">RS</div>
+              <div>
+                <div class="visual-card-name">Rajesh Sharma</div>
+                <div class="visual-card-role">CEO, TechSprint India</div>
+              </div>
+              <div class="visual-card-tag">✓ Verified</div>
+            </div>
+            <div class="visual-card-msg">"Looking for manufacturing partners in Tamil Nadu for our new product line expansion..."</div>
+          </div>
+          <div class="visual-card">
+            <div class="visual-card-top">
+              <div class="visual-card-avatar" style="background:#22C55E;">PM</div>
+              <div>
+                <div class="visual-card-name">Priya Menon</div>
+                <div class="visual-card-role">Investment Director</div>
+              </div>
+              <div class="visual-card-tag">✓ Verified</div>
+            </div>
+            <div class="visual-card-msg">"Seeking early-stage startups in AgriTech and HealthTech for Series A funding..."</div>
+          </div>
+          <div class="visual-card">
+            <div class="visual-card-top">
+              <div class="visual-card-avatar" style="background:#E8A020;">AK</div>
+              <div>
+                <div class="visual-card-name">Amit Kumar</div>
+                <div class="visual-card-role">Founder, AgriLink</div>
+              </div>
+              <div class="visual-card-tag">✓ Verified</div>
+            </div>
+            <div class="visual-card-msg">"Interested in connecting with investors and distribution partners across South India..."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center fade-up" style="text-align:center;">
+        <span class="eyebrow">Success Stories</span>
+        <h2>What Our Members Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up delay-1">
+          <div class="stars">★★★★★</div>
+          <p>"Busi Hunt helped me find my co-founder within 3 months of joining. The quality of connections here is unmatched."</p>
+          <div class="testimonial-author">
+            <div class="t-avatar" style="background:#0A7EA4;">VR</div>
+            <div>
+              <div class="t-name">Vikram Rao</div>
+              <div class="t-role">Co-Founder, FinEdge</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up delay-2">
+          <div class="stars">★★★★★</div>
+          <p>"The South India Summit was a game-changer. I signed two major clients the same week. Worth every penny."</p>
+          <div class="testimonial-author">
+            <div class="t-avatar" style="background:#22C55E;">SK</div>
+            <div>
+              <div class="t-name">Sneha Krishnan</div>
+              <div class="t-role">MD, GrowthFirst Pvt Ltd</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up delay-3">
+          <div class="stars">★★★★★</div>
+          <p>"I've attended 8 Busi Hunt events this year. Each one has given me at least 3 solid business leads. Incredible ROI."</p>
+          <div class="testimonial-author">
+            <div class="t-avatar" style="background:#E8A020;">MN</div>
+            <div>
+              <div class="t-name">Manohar Nair</div>
+              <div class="t-role">Director, Nair Industries</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="fade-up" style="text-align:center;">
+        <span class="eyebrow">Membership Plans</span>
+        <h2>Choose the Plan That Fits Your Goals</h2>
+      </div>
+      <div class="plans-grid">
+        <div class="plan-card fade-up delay-1">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price">Free <span>/ forever</span></div>
+          <div class="plan-desc">Perfect for getting started with business networking.</div>
+          <ul class="plan-features">
+            <li>Basic profile listing</li>
+            <li>Browse member directory</li>
+            <li>Attend 2 events/year</li>
+            <li>Community forum access</li>
+          </ul>
+          <a href="register.html" class="plan-btn">Get Started Free</a>
+        </div>
+        <div class="plan-card popular fade-up delay-2">
+          <div class="popular-badge">Most Popular</div>
+          <div class="plan-name">Professional</div>
+          <div class="plan-price">₹4,999 <span>/ year</span></div>
+          <div class="plan-desc">For serious professionals ready to grow their network.</div>
+          <ul class="plan-features">
+            <li>Featured profile listing</li>
+            <li>Unlimited event access</li>
+            <li>Direct messaging</li>
+            <li>Business leads board</li>
+            <li>Monthly webinars</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="register.html" class="plan-btn">Start Professional</a>
+        </div>
+        <div class="plan-card fade-up delay-3">
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-price">₹14,999 <span>/ year</span></div>
+          <div class="plan-desc">For companies wanting full network visibility and reach.</div>
+          <ul class="plan-features">
+            <li>Company showcase page</li>
+            <li>Event co-branding</li>
+            <li>Sponsored listings</li>
+            <li>Dedicated account manager</li>
+            <li>Analytics dashboard</li>
+          </ul>
+          <a href="contact.html" class="plan-btn">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="eyebrow" style="color:#5BC8E8;">Ready to Grow?</span>
+      <h2>Join 5,000+ Business Leaders<br>on Busi Hunt Today</h2>
+      <p>Start for free. No credit card needed. Connect with India's most active business community.</p>
+      <div class="cta-btns">
+        <a href="register.html" class="btn-cta-primary">Create Free Account</a>
+        <a href="events.html" class="btn-cta-outline">Browse Events →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-name">BusiHunt</div>
+          <p>India's premier business networking forum connecting entrepreneurs, investors, and industry leaders since 2018.</p>
+          <div class="social-row">
+            <a href="#" class="social-btn">in</a>
+            <a href="#" class="social-btn">𝕏</a>
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">📷</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Pages</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <ul class="footer-links">
+            <li><a href="#">Business Forum</a></li>
+            <li><a href="#">Success Stories</a></li>
+            <li><a href="#">Partner Directory</a></li>
+            <li><a href="#">Blog & Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:info@busihunt.com">info@busihunt.com</a></li>
+            <li><a href="#">Chennai, Tamil Nadu</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Busi Hunt. All rights reserved.</span>
+        <span>Designed for Indian Business Community</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    var navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Fade up on scroll
+    var fadeEls = document.querySelectorAll('.fade-up');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(function(el) { observer.observe(el); });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — Busi Hunt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background: var(--off-white); }
+    .auth-wrapper {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .auth-left {
+      background: linear-gradient(135deg, #071529 0%, #12305C 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .auth-left::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    }
+    .auth-left-logo {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 2.5rem;
+    }
+    .auth-left-logo .logo-icon {
+      width: 60px;
+      height: 60px;
+      font-size: 1.2rem;
+      margin: 0 auto 0.75rem;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: var(--font-body);
+    }
+    .auth-left-logo .logo-text {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .auth-left-logo .logo-text span { color: var(--gold); }
+    .auth-left h2 {
+      color: var(--white);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .auth-left p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      max-width: 320px;
+      position: relative;
+      z-index: 1;
+    }
+    .auth-features {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 320px;
+    }
+    .auth-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 0.85rem 1.1rem;
+      text-align: left;
+    }
+    .auth-feature-item span { font-size: 1.2rem; }
+    .auth-feature-item p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      max-width: none;
+    }
+    .auth-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      overflow-y: auto;
+    }
+    .auth-form-box {
+      width: 100%;
+      max-width: 440px;
+    }
+    .auth-form-box h2 {
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+    }
+    .auth-form-box .subtitle {
+      color: var(--gray-mid);
+      font-size: 0.92rem;
+      margin-bottom: 2rem;
+    }
+    .auth-form-box .subtitle a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      margin-bottom: 1.15rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--gray-dark);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(26,111,196,0.12);
+    }
+    .password-strength {
+      margin-top: 0.4rem;
+      height: 4px;
+      border-radius: 99px;
+      background: var(--gray-light);
+      overflow: hidden;
+    }
+    .password-strength-bar {
+      height: 100%;
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.3s, background 0.3s;
+    }
+    .strength-text {
+      font-size: 0.75rem;
+      margin-top: 0.3rem;
+      color: var(--gray-mid);
+    }
+    .password-wrapper {
+      position: relative;
+    }
+    .password-wrapper input {
+      padding-right: 3rem !important;
+    }
+    .toggle-eye {
+      position: absolute;
+      right: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--gray-mid);
+      padding: 0;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .toggle-eye:hover { color: var(--navy); }
+    .terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--gray-mid);
+    }
+    .terms input[type="checkbox"] {
+      margin-top: 2px;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .terms a { color: var(--accent); font-weight: 600; }
+    .auth-btn {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .auth-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201,168,76,0.35);
+    }
+    .auth-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .login-link {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--gray-mid);
+    }
+    .login-link a { color: var(--accent); font-weight: 600; }
+    .alert {
+      padding: 0.85rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      display: none;
+    }
+    .alert.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      display: block;
+    }
+    .alert.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .auth-wrapper { grid-template-columns: 1fr; }
+      .auth-left { display: none; }
+      .auth-right { padding: 2rem 1.25rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-wrapper">
+
+  <!-- Left Side -->
+  <div class="auth-left">
+    <div class="auth-left-logo">
+      <div class="logo-icon">BH</div>
+      <div class="logo-text">Busi<span>Hunt</span></div>
+    </div>
+    <h2>Join India's Largest<br>Business Network</h2>
+    <p>Create your free account and start connecting with 5,000+ professionals today.</p>
+    <div class="auth-features">
+      <div class="auth-feature-item">
+        <span>✅</span>
+        <p>Free membership — no credit card needed</p>
+      </div>
+      <div class="auth-feature-item">
+        <span>🌐</span>
+        <p>Pan-India network across 40+ industries</p>
+      </div>
+      <div class="auth-feature-item">
+        <span>📅</span>
+        <p>Access to exclusive events & summits</p>
+      </div>
+      <div class="auth-feature-item">
+        <span>🚀</span>
+        <p>Grow your business with real connections</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Side -->
+  <div class="auth-right">
+    <div class="auth-form-box">
+      <h2>Create Account</h2>
+      <p class="subtitle">Already have an account? <a href="login.html">Sign in here →</a></p>
+
+      <div class="alert" id="alertBox"></div>
+
+      <form id="registerForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first_name">First Name *</label>
+            <input type="text" id="first_name" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="last_name">Last Name *</label>
+            <input type="text" id="last_name" placeholder="Doe" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="john@company.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+91 98765 43210">
+        </div>
+
+        <div class="form-group">
+          <label for="company">Company / Organization</label>
+          <input type="text" id="company" placeholder="Your Company Name">
+        </div>
+
+        <div class="form-group">
+          <label for="sector">Industry Sector</label>
+          <select id="sector">
+            <option value="">Select your sector</option>
+            <option>Technology</option>
+            <option>Finance & Banking</option>
+            <option>Manufacturing</option>
+            <option>Healthcare</option>
+            <option>Real Estate</option>
+            <option>Retail & E-Commerce</option>
+            <option>Consulting</option>
+            <option>Agriculture</option>
+            <option>Education</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password *</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" placeholder="Min. 6 characters" required>
+            <button type="button" class="toggle-eye" onclick="togglePassword('password', this)">👁️</button>
+          </div>
+          <div class="password-strength">
+            <div class="password-strength-bar" id="strengthBar"></div>
+          </div>
+          <div class="strength-text" id="strengthText"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm_password">Confirm Password *</label>
+          <div class="password-wrapper">
+            <input type="password" id="confirm_password" placeholder="Re-enter your password" required>
+            <button type="button" class="toggle-eye" onclick="togglePassword('confirm_password', this)">👁️</button>
+          </div>
+        </div>
+
+        <div class="terms">
+          <input type="checkbox" id="terms" required>
+          <label for="terms">I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a></label>
+        </div>
+
+        <button type="submit" class="auth-btn" id="registerBtn">Create Free Account →</button>
+      </form>
+
+      <div class="login-link">
+        Already a member? <a href="login.html">Sign in here</a>
+      </div>
+
+      <div style="margin-top:1.5rem;text-align:center;">
+        <a href="index.html" style="font-size:0.85rem;color:var(--gray-mid);">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Show / Hide password toggle
+  function togglePassword(fieldId, btn) {
+    const input = document.getElementById(fieldId);
+    if (input.type === 'password') {
+      input.type = 'text';
+      btn.textContent = '🙈';
+    } else {
+      input.type = 'password';
+      btn.textContent = '👁️';
+    }
+  }
+
+  // Password strength checker
+  const passwordInput = document.getElementById('password');
+  const strengthBar   = document.getElementById('strengthBar');
+  const strengthText  = document.getElementById('strengthText');
+
+  passwordInput.addEventListener('input', () => {
+    const val = passwordInput.value;
+    let strength = 0;
+
+    if (val.length >= 6)  strength++;
+    if (val.length >= 10) strength++;
+    if (/[A-Z]/.test(val)) strength++;
+    if (/[0-9]/.test(val)) strength++;
+    if (/[^A-Za-z0-9]/.test(val)) strength++;
+
+    const levels = [
+      { width: '0%',   color: '#E53E3E', text: '' },
+      { width: '25%',  color: '#E53E3E', text: 'Weak' },
+      { width: '50%',  color: '#ED8936', text: 'Fair' },
+      { width: '75%',  color: '#ECC94B', text: 'Good' },
+      { width: '90%',  color: '#48BB78', text: 'Strong' },
+      { width: '100%', color: '#38A169', text: 'Very Strong' },
+    ];
+
+    const level = levels[Math.min(strength, 5)];
+    strengthBar.style.width    = level.width;
+    strengthBar.style.background = level.color;
+    strengthText.textContent   = level.text;
+    strengthText.style.color   = level.color;
+  });
+
+  // Register form submit
+  const registerForm = document.getElementById('registerForm');
+  const alertBox     = document.getElementById('alertBox');
+  const registerBtn  = document.getElementById('registerBtn');
+
+  registerForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const first_name       = document.getElementById('first_name').value.trim();
+    const last_name        = document.getElementById('last_name').value.trim();
+    const email            = document.getElementById('email').value.trim();
+    const password         = document.getElementById('password').value.trim();
+    const confirm_password = document.getElementById('confirm_password').value.trim();
+    const terms            = document.getElementById('terms').checked;
+
+    // Validations
+    if (!first_name || !last_name || !email || !password || !confirm_password) {
+      showAlert('Please fill in all required fields.', 'error');
+      return;
+    }
+
+    if (password.length < 6) {
+      showAlert('Password must be at least 6 characters.', 'error');
+      return;
+    }
+
+    if (password !== confirm_password) {
+      showAlert('Passwords do not match.', 'error');
+      return;
+    }
+
+    if (!terms) {
+      showAlert('Please agree to the Terms of Use and Privacy Policy.', 'error');
+      return;
+    }
+
+    registerBtn.textContent = 'Creating account...';
+    registerBtn.disabled = true;
+
+    const formData = new FormData();
+    formData.append('first_name', first_name);
+    formData.append('last_name',  last_name);
+    formData.append('email',      email);
+    formData.append('password',   password);
+
+    try {
+      const res = await fetch('http://localhost/busihunt/php/register.php', { method: 'POST', body: formData });
+      const data = await res.json();
+
+      if (data.status === 'success') {
+        showAlert('🎉 ' + data.message, 'success');
+        registerForm.reset();
+        strengthBar.style.width = '0%';
+        strengthText.textContent = '';
+        setTimeout(() => {
+          window.location.href = 'login.html';
+        }, 2000);
+      } else {
+        showAlert(data.message, 'error');
+        registerBtn.textContent = 'Create Free Account →';
+        registerBtn.disabled = false;
+      }
+    } catch (err) {
+      showAlert('Something went wrong. Please try again.', 'error');
+      registerBtn.textContent = 'Create Free Account →';
+      registerBtn.disabled = false;
+    }
+  });
+
+  function showAlert(msg, type) {
+    alertBox.textContent = msg;
+    alertBox.className = 'alert ' + type;
+    alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+</script>
+
+</body>
+</html>

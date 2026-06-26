@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busi Hunt — Business Networking Forum (Concept 3)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       CONCEPT 3 — Bold Crimson + Ivory + Deep Black
+       Signature: Full-width editorial hero with bold typography
+       and a rotating industry ticker
+    ============================================================ */
+    :root {
+      --crimson:     #C0392B;
+      --crimson-dark:#922B21;
+      --crimson-light:#FDECEA;
+      --black:       #111111;
+      --charcoal:    #1F1F1F;
+      --ivory:       #FDFCF8;
+      --warm-gray:   #F5F4F0;
+      --border:      #E8E6E0;
+      --text:        #333333;
+      --text-muted:  #777777;
+      --gold:        #D4A017;
+      --green:       #27AE60;
+      --radius:      8px;
+      --radius-lg:   16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--ivory);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      line-height: 1.15;
+    }
+
+    h1 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; }
+    h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; }
+    h3 { font-size: 1.2rem; font-weight: 700; }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ---- TOP BAR ---- */
+    .top-bar {
+      background: var(--crimson);
+      padding: 0.4rem 0;
+      overflow: hidden;
+    }
+
+    .top-bar-track {
+      display: inline-flex;
+      gap: 2.5rem;
+      animation: ticker 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .top-bar-item {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ---- NAVBAR ---- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
+      padding: 0;
+      border-bottom: 3px solid var(--crimson);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      height: 64px;
+      gap: 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-box {
+      width: 38px; height: 38px;
+      background: var(--crimson);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: white;
+      font-family: 'Fraunces', serif;
+    }
+
+    .logo-text {
+      font-family: 'Fraunces', serif;
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: white;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span { color: var(--crimson); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .nav-link {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      padding: 0 1rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -3px;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover { color: white; border-bottom-color: var(--crimson); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-nav-ghost {
+      padding: 0.45rem 1rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.8);
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-nav-ghost:hover { border-color: white; color: white; }
+
+    .btn-nav-fill {
+      padding: 0.45rem 1.1rem;
+      background: var(--crimson);
+      color: white;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-nav-fill:hover { background: var(--crimson-dark); }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: var(--black);
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: 'BH';
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Fraunces', serif;
+      font-size: 28vw;
+      font-weight: 900;
+      color: rgba(255,255,255,0.02);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--crimson);
+    }
+
+    .hero h1 {
+      color: white;
+      max-width: 900px;
+      margin-bottom: 2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--crimson);
+      -webkit-text-stroke: 0px;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-desc {
+      color: rgba(255,255,255,0.55);
+      font-size: 1rem;
+      max-width: 460px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+
+    .btn-hero-primary {
+      padding: 1rem 2.25rem;
+      background: var(--crimson);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-hero-primary:hover { background: var(--crimson-dark); transform: translateY(-2px); }
+
+    .btn-hero-text {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .btn-hero-text:hover { color: white; }
+
+    /* ---- STATS BAR ---- */
+    .stats-bar {
+      background: var(--crimson);
+      padding: 0;
+    }
+
+    .stats-bar .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+      padding: 2rem 1.5rem;
+      border-right: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    /* ---- SECTIONS ---- */
+    .section { padding: 5rem 0; }
+    .section-dark { background: var(--charcoal); }
+    .section-warm { background: var(--warm-gray); }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--crimson);
+    }
+
+    /* ---- INDUSTRIES ---- */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    .industry-item {
+      padding: 2rem 1.5rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.25s;
+      cursor: default;
+    }
+
+    .industry-item:hover {
+      background: var(--crimson);
+    }
+
+    .industry-item:hover .industry-name { color: white; }
+    .industry-item:hover .industry-count { color: rgba(255,255,255,0.7); }
+    .industry-item:hover .industry-icon { background: rgba(255,255,255,0.15); }
+
+    .industry-icon {
+      width: 44px; height: 44px;
+      background: var(--crimson-light);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      transition: all 0.25s;
+    }
+
+    .industry-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+      transition: color 0.25s;
+    }
+
+    .industry-count {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      transition: color 0.25s;
+    }
+
+    /* ---- EVENTS ---- */
+    .events-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .event-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .event-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+
+    .event-card-top {
+      height: 10px;
+      background: var(--crimson);
+    }
+
+    .event-card-body { padding: 1.5rem; }
+
+    .event-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .event-type-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.65rem;
+      border-radius: 99px;
+      background: var(--crimson-light);
+      color: var(--crimson);
+    }
+
+    .event-date-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .event-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: var(--black);
+    }
+
+    .event-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .event-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .event-location {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .event-register-btn {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--crimson);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+
+    .event-register-btn:hover { gap: 0.6rem; }
+
+    /* ---- MEMBERS ---- */
+    .members-showcase {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .members-text h2 { margin-bottom: 1rem; }
+    .members-text p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; }
+
+    .btn-members {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--black);
+      color: white;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .btn-members:hover { background: var(--crimson); }
+
+    .members-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .member-mini-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .member-mini-card:hover {
+      border-color: var(--crimson);
+      box-shadow: 0 8px 24px rgba(192,57,43,0.1);
+      transform: translateY(-3px);
+    }
+
+    .member-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: white;
+      margin: 0 auto 0.75rem;
+    }
+
+    .member-name { font-size: 0.88rem; font-weight: 700; color: var(--black); margin-bottom: 0.2rem; }
+    .member-role { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+
+    .member-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 99px;
+      background: var(--crimson-light);
+      color: var(--crimson);
+    }
+
+    /* ---- CTA ---- */
+    .cta-section {
+      background: var(--black);
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 6px;
+      background: var(--crimson);
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .cta-section h2 { color: white; margin-bottom: 1rem; }
+    .cta-section p  { color: rgba(255,255,255,0.55); max-width: 520px; font-size: 1rem; }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+
+    .btn-cta-main {
+      padding: 1rem 2.5rem;
+      background: var(--crimson);
+      color: white;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .btn-cta-main:hover { background: var(--crimson-dark); transform: translateY(-2px); }
+
+    .btn-cta-ghost {
+      padding: 1rem 2.5rem;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .btn-cta-ghost:hover { border-color: white; color: white; }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #0A0A0A;
+      padding: 4rem 0 0;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-brand .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand .footer-logo span { color: var(--crimson); }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.8;
+      max-width: 260px;
+    }
+
+    .footer-col h5 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-links a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--crimson); }
+
+    .footer-bottom {
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-icon {
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.78rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .social-icon:hover { background: var(--crimson); color: white; }
+
+    /* ---- ANIMATIONS ---- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* ---- HAMBURGER ---- */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: auto;
+    }
+    .hamburger span { display: block; width: 22px; height: 2px; background: white; border-radius: 2px; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .stats-bar .container { grid-template-columns: repeat(2, 1fr); }
+      .industries-grid { grid-template-columns: repeat(2, 1fr); }
+      .events-row { grid-template-columns: 1fr 1fr; }
+      .members-showcase { grid-template-columns: 1fr; }
+      .members-cards-grid { grid-template-columns: repeat(3, 1fr); }
+      .cta-inner { grid-template-columns: 1fr; }
+      .cta-actions { align-items: flex-start; flex-direction: row; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions { display: none; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 2.5rem; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; }
+      .hero-actions { align-items: flex-start; }
+      .events-row { grid-template-columns: 1fr; }
+      .members-cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .industries-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-actions { flex-direction: column; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP TICKER -->
+  <div class="top-bar">
+    <div class="top-bar-track">
+      <span class="top-bar-item">🏛️ South India Business Summit — July 20, 2026 — Chennai</span>
+      <span class="top-bar-item">•</span>
+      <span class="top-bar-item">💼 5,000+ Verified Members Across India</span>
+      <span class="top-bar-item">•</span>
+      <span class="top-bar-item">📅 Next Event: Startup Pitch Night — August 5, Bangalore</span>
+      <span class="top-bar-item">•</span>
+      <span class="top-bar-item">🌐 40+ Industries | Trusted Since 2018</span>
+      <span class="top-bar-item">•</span>
+      <span class="top-bar-item">🏛️ South India Business Summit — July 20, 2026 — Chennai</span>
+      <span class="top-bar-item">•</span>
+      <span class="top-bar-item">💼 5,000+ Verified Members Across India</span>
+      <span class="top-bar-item">•</span>
+      <span class="top-bar-item">📅 Next Event: Startup Pitch Night — August 5, Bangalore</span>
+      <span class="top-bar-item">•</span>
+      <span class="top-bar-item">🌐 40+ Industries | Trusted Since 2018</span>
+      <span class="top-bar-item">•</span>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-box">BH</div>
+        <span class="logo-text">Busi<span>Hunt</span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="events.html" class="nav-link">Events</a></li>
+        <li><a href="members.html" class="nav-link">Members</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav-ghost">Sign In</a>
+        <a href="register.html" class="btn-nav-fill">Join Free</a>
+      </div>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-label">India's Premier Business Network</div>
+      <h1>Where <em>Ambition</em><br>Meets Opportunity</h1>
+      <div class="hero-bottom">
+        <p class="hero-desc">Busi Hunt is India's most trusted business networking platform — connecting founders, investors, and industry leaders who are serious about growth.</p>
+        <div class="hero-actions">
+          <a href="register.html" class="btn-hero-primary">Join the Network →</a>
+          <a href="events.html" class="btn-hero-text">Browse upcoming events ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stat-item">
+        <div class="stat-num">5,000+</div>
+        <div class="stat-label">Active Members</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">120+</div>
+        <div class="stat-label">Events Hosted</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Industries</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INDUSTRIES -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Our Network</div>
+        <h2>40+ Industries.<br>One Powerful Community.</h2>
+      </div>
+      <div class="industries-grid">
+        <div class="industry-item reveal d1">
+          <div class="industry-icon">💻</div>
+          <div class="industry-name">Technology & IT</div>
+          <div class="industry-count">1,200+ members</div>
+        </div>
+        <div class="industry-item reveal d2">
+          <div class="industry-icon">💰</div>
+          <div class="industry-name">Finance & Banking</div>
+          <div class="industry-count">700+ members</div>
+        </div>
+        <div class="industry-item reveal d3">
+          <div class="industry-icon">🏭</div>
+          <div class="industry-name">Manufacturing</div>
+          <div class="industry-count">800+ members</div>
+        </div>
+        <div class="industry-item reveal d4">
+          <div class="industry-icon">🏥</div>
+          <div class="industry-name">Healthcare</div>
+          <div class="industry-count">450+ members</div>
+        </div>
+        <div class="industry-item reveal d1">
+          <div class="industry-icon">🏗️</div>
+          <div class="industry-name">Real Estate</div>
+          <div class="industry-count">380+ members</div>
+        </div>
+        <div class="industry-item reveal d2">
+          <div class="industry-icon">🛒</div>
+          <div class="industry-name">Retail & E-Commerce</div>
+          <div class="industry-count">520+ members</div>
+        </div>
+        <div class="industry-item reveal d3">
+          <div class="industry-icon">🌾</div>
+          <div class="industry-name">Agriculture</div>
+          <div class="industry-count">290+ members</div>
+        </div>
+        <div class="industry-item reveal d4">
+          <div class="industry-icon">🎓</div>
+          <div class="industry-name">Education & EdTech</div>
+          <div class="industry-count">340+ members</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="section section-warm">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;" class="reveal">
+        <div>
+          <div class="eyebrow">Upcoming Events</div>
+          <h2>Don't Miss What's Next</h2>
+        </div>
+        <a href="events.html" style="font-size:0.88rem;font-weight:700;color:var(--crimson);">View All Events →</a>
+      </div>
+      <div class="events-row">
+        <div class="event-card reveal d1">
+          <div class="event-card-top"></div>
+          <div class="event-card-body">
+            <div class="event-meta-row">
+              <span class="event-type-badge">Summit</span>
+              <span class="event-date-text">Jul 20, 2026</span>
+            </div>
+            <h3>South India Business Summit 2026</h3>
+            <p>India's top entrepreneurs and investors gather for a full-day summit on growth, funding, and collaboration.</p>
+            <div class="event-footer">
+              <span class="event-location">📍 Chennai</span>
+              <a href="contact.html" class="event-register-btn">Register Now →</a>
+            </div>
+          </div>
+        </div>
+        <div class="event-card reveal d2">
+          <div class="event-card-top"></div>
+          <div class="event-card-body">
+            <div class="event-meta-row">
+              <span class="event-type-badge">Investor Meet</span>
+              <span class="event-date-text">Aug 5, 2026</span>
+            </div>
+            <h3>Startup Pitch & Investor Meetup</h3>
+            <p>Selected startups pitch to seasoned investors. Open for all members to attend and observe.</p>
+            <div class="event-footer">
+              <span class="event-location">📍 Bangalore</span>
+              <a href="contact.html" class="event-register-btn">Register Now →</a>
+            </div>
+          </div>
+        </div>
+        <div class="event-card reveal d3">
+          <div class="event-card-top"></div>
+          <div class="event-card-body">
+            <div class="event-meta-row">
+              <span class="event-type-badge">Webinar</span>
+              <span class="event-date-text">Aug 18, 2026</span>
+            </div>
+            <h3>Export & International Trade Webinar</h3>
+            <p>Learn how to take your business global with expert guidance on exports and new markets.</p>
+            <div class="event-footer">
+              <span class="event-location">🌐 Online</span>
+              <a href="contact.html" class="event-register-btn">Register Now →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERS -->
+  <section class="section">
+    <div class="container">
+      <div class="members-showcase">
+        <div class="members-text reveal">
+          <div class="eyebrow">Our Community</div>
+          <h2>Meet the People Building India's Future</h2>
+          <p>From first-time founders to seasoned CEOs — our verified network spans every corner of Indian business.</p>
+          <a href="members.html" class="btn-members">Browse Full Directory →</a>
+        </div>
+        <div class="members-cards-grid">
+          <div class="member-mini-card reveal d1">
+            <div class="member-avatar" style="background:#C0392B;">RS</div>
+            <div class="member-name">Rajesh Sharma</div>
+            <div class="member-role">CEO, TechSprint India</div>
+            <span class="member-tag">Technology</span>
+          </div>
+          <div class="member-mini-card reveal d2">
+            <div class="member-avatar" style="background:#27AE60;">PM</div>
+            <div class="member-name">Priya Menon</div>
+            <div class="member-role">Investment Director</div>
+            <span class="member-tag">Finance</span>
+          </div>
+          <div class="member-mini-card reveal d3">
+            <div class="member-avatar" style="background:#D4A017;">AK</div>
+            <div class="member-name">Amit Kumar</div>
+            <div class="member-role">Founder, AgriLink</div>
+            <span class="member-tag">AgriTech</span>
+          </div>
+          <div class="member-mini-card reveal d1">
+            <div class="member-avatar" style="background:#8E44AD;">SV</div>
+            <div class="member-name">Sunita Verma</div>
+            <div class="member-role">Export Consultant</div>
+            <span class="member-tag">Trade</span>
+          </div>
+          <div class="member-mini-card reveal d2">
+            <div class="member-avatar" style="background:#2980B9;">VN</div>
+            <div class="member-name">Vishal Nair</div>
+            <div class="member-role">MD, Nair Constructions</div>
+            <span class="member-tag">Real Estate</span>
+          </div>
+          <div class="member-mini-card reveal d3">
+            <div class="member-avatar" style="background:#16A085;">DM</div>
+            <div class="member-name">Deepa Murthy</div>
+            <div class="member-role">Healthcare Director</div>
+            <span class="member-tag">Healthcare</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="reveal">
+          <div class="eyebrow" style="color:var(--crimson);">Take the Next Step</div>
+          <h2>Your Next Business Partner<br>is Already on Busi Hunt</h2>
+          <p>Join India's most active business networking community. Start free, grow fast.</p>
+        </div>
+        <div class="cta-actions reveal d2">
+          <a href="register.html" class="btn-cta-main">Join Free Today</a>
+          <a href="about.html" class="btn-cta-ghost">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Busi<span>Hunt</span></div>
+          <p>India's premier business networking forum connecting entrepreneurs, investors, and industry leaders since 2018.</p>
+          <div class="social-row">
+            <a href="#" class="social-icon">in</a>
+            <a href="#" class="social-icon">𝕏</a>
+            <a href="#" class="social-icon">f</a>
+            <a href="#" class="social-icon">📷</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Pages</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <ul class="footer-links">
+            <li><a href="#">Business Forum</a></li>
+            <li><a href="#">Success Stories</a></li>
+            <li><a href="#">Partner Directory</a></li>
+            <li><a href="#">Blog & Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:info@busihunt.com">info@busihunt.com</a></li>
+            <li><a href="#">+91 44 0000 0000</a></li>
+            <li><a href="#">Chennai, Tamil Nadu</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Busi Hunt. All rights reserved.</span>
+        <span>Built for Indian Business Community</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    var revealEls = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(function(el) { observer.observe(el); });
+  </script>
+
+</body>
+</html>
