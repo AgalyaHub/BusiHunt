@@ -122,31 +122,47 @@ http://localhost/busihunt
 
 ## 📸 Screenshots
 
-Add screenshots here after completing the project.
+### 🏠 Home Page
 
-Example:
-
-```
-screenshots/
-    home.png
-    login.png
-    register.png
-    events.png
-```
+![Home Page](screenshots/home.png)
 
 ---
 
-## 🔮 Future Improvements
+### 🔐 Login Page
 
-- Email Verification
-- Password Reset
-- Event Booking
-- Payment Integration
-- User Profiles
-- Notifications
-- Admin Analytics Dashboard
+![Login Page](screenshots/login.png)
 
 ---
+
+### 📝 Registration Page
+
+![Registration Page](screenshots/register.png)
+
+---
+
+### 📅 Events Page
+
+![Events Page](screenshots/events.png)
+
+---
+
+### 👥 Members Page
+
+![Members Page](screenshots/members.png)
+
+---
+
+### 📞 Contact Page
+
+![Contact Page](screenshots/contact.png)
+
+---
+
+### 🛠️ Admin Dashboard
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+```
 
 ## 👩‍💻 Author
 
